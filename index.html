@@ -1,1 +1,823 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Puerto Rico — Feb 28 – Mar 6, 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=DM+Sans:wght@300;400;500;600&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sand: #F7F3ED;
+  --ocean: #1A6B6E;
+  --ocean-light: #2A8E8F;
+  --ocean-deep: #0E4A4D;
+  --coral: #E07B5A;
+  --coral-light: #F4A68B;
+  --sunset: #E8A945;
+  --palm: #2D5A3C;
+  --night: #1A1F2E;
+  --text: #2C2C2C;
+  --text-light: #6B6B6B;
+  --white: #FFFFFF;
+  --divider: rgba(26,107,110,0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--sand);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 3rem 2rem 4rem;
+  position: relative;
+  background: linear-gradient(165deg, var(--ocean-deep) 0%, var(--ocean) 40%, var(--ocean-light) 70%, var(--coral-light) 100%);
+  overflow: hidden;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse 80% 50% at 20% 80%, rgba(224,123,90,0.3) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 80% 20%, rgba(42,142,143,0.4) 0%, transparent 50%);
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 200px;
+  background: linear-gradient(to top, var(--sand), transparent);
+}
+
+.hero-content { position: relative; z-index: 2; max-width: 800px; }
+
+.hero-eyebrow {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 1.5rem;
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(3.5rem, 10vw, 7rem);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 0.95;
+  margin-bottom: 1rem;
+}
+
+.hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--coral-light);
+}
+
+.hero-dates {
+  font-size: 1.1rem;
+  font-weight: 300;
+  color: rgba(255,255,255,0.75);
+  margin-bottom: 2rem;
+}
+
+.hero-scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: rgba(255,255,255,0.5);
+  font-size: 0.8rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  animation: float 2s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* ── NAV PILLS ── */
+.nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(247,243,237,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--divider);
+  padding: 0.75rem 1.5rem;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+.nav-bar::-webkit-scrollbar { display: none; }
+
+.nav-inner {
+  display: flex;
+  gap: 0.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.nav-pill {
+  flex-shrink: 0;
+  padding: 0.5rem 1rem;
+  border-radius: 100px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  color: var(--text-light);
+  text-decoration: none;
+  transition: all 0.2s;
+  border: 1px solid transparent;
+  white-space: nowrap;
+}
+
+.nav-pill:hover { color: var(--ocean); background: rgba(26,107,110,0.06); }
+.nav-pill.active { background: var(--ocean); color: var(--white); }
+
+/* ── MAIN CONTENT ── */
+.content { max-width: 800px; margin: 0 auto; padding: 0 1.5rem; }
+
+/* ── SECTION HEADERS ── */
+.section-header {
+  padding: 4rem 0 2rem;
+}
+
+.section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 0.75rem;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2rem, 5vw, 2.8rem);
+  font-weight: 700;
+  color: var(--ocean-deep);
+  line-height: 1.15;
+}
+
+/* ── HOTEL CARDS ── */
+.hotel-grid { display: grid; gap: 1.5rem; margin-bottom: 2rem; }
+
+.hotel-card {
+  background: var(--white);
+  border-radius: 16px;
+  padding: 2rem;
+  border: 1px solid var(--divider);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  overflow: hidden;
+}
+
+.hotel-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+.hotel-badge {
+  display: inline-block;
+  padding: 0.3rem 0.75rem;
+  border-radius: 100px;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+
+.hotel-badge.confirmed { background: var(--ocean); color: var(--white); }
+.hotel-badge.pending { background: var(--coral); color: var(--white); }
+
+.hotel-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--ocean-deep);
+  margin-bottom: 0.25rem;
+}
+
+.hotel-location {
+  font-size: 0.85rem;
+  color: var(--text-light);
+  margin-bottom: 1rem;
+}
+
+.hotel-details {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.hotel-meta {
+  margin-top: 1.25rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--divider);
+  font-size: 0.8rem;
+  color: var(--text-light);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+
+.hotel-meta a {
+  color: var(--ocean);
+  text-decoration: none;
+}
+
+/* ── DAY CARDS ── */
+.day-card {
+  background: var(--white);
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--divider);
+  overflow: hidden;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.day-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+.day-header {
+  padding: 1.5rem 2rem 1rem;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.day-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--ocean);
+  line-height: 1;
+  min-width: 60px;
+}
+
+.day-info { flex: 1; }
+
+.day-date {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--coral);
+  margin-bottom: 0.25rem;
+}
+
+.day-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--ocean-deep);
+  line-height: 1.3;
+}
+
+.day-hotel-tag {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.6rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  flex-shrink: 0;
+  margin-top: 0.25rem;
+}
+
+.tag-convento { background: rgba(26,107,110,0.1); color: var(--ocean); }
+.tag-bluehorizon { background: rgba(224,123,90,0.12); color: var(--coral); }
+
+.day-toggle {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 1.5px solid var(--divider);
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  transition: all 0.2s;
+  background: transparent;
+  cursor: pointer;
+  margin-top: 0.25rem;
+}
+
+.day-toggle svg { transition: transform 0.3s; }
+.day-card.open .day-toggle svg { transform: rotate(180deg); }
+.day-card.open .day-toggle { background: var(--ocean); border-color: var(--ocean); }
+.day-card.open .day-toggle svg path { stroke: var(--white); }
+
+.day-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+
+.day-body-inner {
+  padding: 0 2rem 2rem;
+}
+
+.day-section {
+  margin-bottom: 1.25rem;
+}
+
+.day-section-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ocean-light);
+  margin-bottom: 0.5rem;
+}
+
+.day-section p {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text);
+}
+
+.day-section p strong { color: var(--ocean-deep); font-weight: 600; }
+
+.day-highlight {
+  background: linear-gradient(135deg, rgba(26,107,110,0.06), rgba(224,123,90,0.06));
+  border-radius: 12px;
+  padding: 1.25rem;
+  margin-top: 1rem;
+  border-left: 3px solid var(--coral);
+}
+
+.day-highlight p {
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: var(--text);
+}
+
+/* ── CHECKLIST ── */
+.checklist { margin: 1rem 0 3rem; }
+
+.check-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--divider);
+}
+
+.check-item:last-child { border-bottom: none; }
+
+.check-box {
+  width: 22px; height: 22px;
+  border-radius: 6px;
+  border: 2px solid var(--divider);
+  flex-shrink: 0;
+  margin-top: 1px;
+  display: flex; align-items: center; justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.check-box.done {
+  background: var(--ocean);
+  border-color: var(--ocean);
+}
+
+.check-box.done::after {
+  content: '✓';
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+}
+
+.check-text { font-size: 0.9rem; line-height: 1.5; }
+.check-text strong { color: var(--ocean-deep); }
+.check-text .sub { display: block; font-size: 0.8rem; color: var(--text-light); margin-top: 0.15rem; }
+
+/* ── FOOTER ── */
+.footer {
+  margin-top: 4rem;
+  padding: 3rem 0;
+  border-top: 1px solid var(--divider);
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-light);
+  line-height: 1.8;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 600px) {
+  .hero { padding: 2rem 1.25rem 3rem; }
+  .content { padding: 0 1rem; }
+  .day-header { padding: 1.25rem 1.25rem 0.75rem; }
+  .day-body-inner { padding: 0 1.25rem 1.5rem; }
+  .hotel-card { padding: 1.5rem; }
+  .day-number { font-size: 2rem; min-width: 45px; }
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-content">
+    <div class="hero-eyebrow">Feb 28 – Mar 6, 2026</div>
+    <h1>Puerto <em>Rico</em></h1>
+    <div class="hero-dates">7 days · Old San Juan → Vieques Island</div>
+    <a href="#hotels" class="hero-scroll">
+      <span>Scroll to explore</span>
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M8 3v10m0 0l-4-4m4 4l4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- NAV -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#hotels" class="nav-pill active">Hotels</a>
+    <a href="#day1" class="nav-pill">Day 1</a>
+    <a href="#day2" class="nav-pill">Day 2</a>
+    <a href="#day3" class="nav-pill">Day 3</a>
+    <a href="#day4" class="nav-pill">Day 4</a>
+    <a href="#day5" class="nav-pill">Day 5</a>
+    <a href="#day6" class="nav-pill">Day 6</a>
+    <a href="#day7" class="nav-pill">Day 7</a>
+    <a href="#checklist" class="nav-pill">Checklist</a>
+  </div>
+</nav>
+
+<!-- CONTENT -->
+<div class="content">
+
+  <!-- HOTELS -->
+  <div class="section-header" id="hotels">
+    <div class="section-label">Where You're Staying</div>
+    <div class="section-title">Two Hotels, Two Worlds</div>
+  </div>
+
+  <div class="hotel-grid">
+    <div class="hotel-card">
+      <div class="hotel-badge confirmed">✓ Booked · Nights 1–3</div>
+      <div class="hotel-name">Hotel El Convento</div>
+      <div class="hotel-location">Old San Juan · Feb 28 – Mar 3</div>
+      <div class="hotel-details">
+        A restored 350-year-old Carmelite convent and Small Luxury Hotels of the World member. Rooftop plunge pool and jacuzzi overlooking San Juan Bay, two on-site restaurants, nightly wine & cheese reception, and included beach privileges at their Beach Club on Isla Verde Beach. Steps from the Cathedral, El Morro, and dozens of restaurants.
+      </div>
+      <div class="hotel-meta">
+        <span>100 Calle del Cristo</span>
+        <span>+1 787-723-9020</span>
+        <a href="https://elconvento.com" target="_blank">elconvento.com</a>
+      </div>
+    </div>
+
+    <div class="hotel-card">
+      <div class="hotel-badge pending">Book Now · Nights 4–6</div>
+      <div class="hotel-name">Blue Horizon Boutique Resort</div>
+      <div class="hotel-location">Vieques Island · Mar 3 – Mar 6</div>
+      <div class="hotel-details">
+        Adults-only oceanfront resort perched on a clifftop overlooking the Caribbean, with 50 acres of beachfront. Mediterranean-style main house, infinity pool, private beach access, and the Carambola restaurant with legendary brunch. Only 12 rooms — intimate and secluded. Rent a Jeep and explore the island's empty beaches.
+      </div>
+      <div class="hotel-meta">
+        <span>Carretera 996 Km 4.3, Vieques</span>
+        <span>+1 787-741-3318</span>
+        <a href="https://bluehorizonboutiqueresort.com" target="_blank">bluehorizonboutiqueresort.com</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ITINERARY -->
+  <div class="section-header" id="itinerary">
+    <div class="section-label">Day by Day</div>
+    <div class="section-title">The Itinerary</div>
+  </div>
+
+  <!-- DAY 1 -->
+  <div class="day-card" id="day1">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">01</div>
+      <div class="day-info">
+        <div class="day-date">Saturday, February 28</div>
+        <div class="day-title">Arrival & First Night</div>
+      </div>
+      <span class="day-hotel-tag tag-convento">El Convento</span>
+      <button class="day-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <div class="day-body">
+      <div class="day-body-inner">
+        <div class="day-section">
+          <div class="day-section-label">Afternoon</div>
+          <p>Noon flight from NYC, land ~3pm. Uber to Old San Juan (~25 min). Check into <strong>Hotel El Convento</strong> and settle in.</p>
+        </div>
+        <div class="day-section">
+          <div class="day-section-label">Sunset</div>
+          <p>Walk the <strong>Paseo de la Princesa</strong> — a gorgeous waterfront promenade along the old city walls. Grab a piragua (Puerto Rican shaved ice) from a street vendor.</p>
+        </div>
+        <div class="day-section">
+          <div class="day-section-label">Dinner</div>
+          <p><strong>Marmalade</strong> (upscale Caribbean tasting menu), <strong>Pirilo Pizza</strong> (craft cocktails & Neapolitan pizza), or <strong>El Picoteo</strong> at El Convento for tapas and wine.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 2 -->
+  <div class="day-card" id="day2">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">02</div>
+      <div class="day-info">
+        <div class="day-date">Sunday, March 1</div>
+        <div class="day-title">Old San Juan Exploration + La Placita</div>
+      </div>
+      <span class="day-hotel-tag tag-convento">El Convento</span>
+      <button class="day-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <div class="day-body">
+      <div class="day-body-inner">
+        <div class="day-section">
+          <div class="day-section-label">Morning</div>
+          <p>Breakfast at <strong>Kaffe Haus</strong> (311 Calle de Tetuán) or <strong>Chocobar Cortés</strong> (210 Calle San Francisco). Then <strong>Castillo San Felipe del Morro</strong> — $10/person, incredible ocean views and 500 years of history.</p>
+        </div>
+        <div class="day-section">
+          <div class="day-section-label">Midday</div>
+          <p><strong>Castillo San Cristóbal</strong> (same ticket) — explore the tunnels and outposts. Lunch in the old city: <strong>Deaverdura</strong> for authentic Puerto Rican roast pork, or <strong>La Madre</strong> for upscale Mexican.</p>
+        </div>
+        <div class="day-section">
+          <div class="day-section-label">Afternoon</div>
+          <p>Free ferry across the bay to <strong>Casa Bacardí</strong> in Cataño for a rum tasting or mixology class (~$50–70/person).</p>
+        </div>
+        <div class="day-section">
+          <div class="day-section-label">Evening</div>
+          <p><strong>La Placita de Santurce</strong> on a Sunday night — legendary live salsa music, dancing in the streets, cheap drinks, incredible local energy. Uber there and back.</p>
+        </div>
+        <div class="day-highlight">
+          <p>☆ <strong>Don't miss La Placita.</strong> Sunday night is the best night. It's where the locals go and one of the best nightlife experiences in the Caribbean.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 3 -->
+  <div class="day-card" id="day3">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">03</div>
+      <div class="day-info">
+        <div class="day-date">Monday, March 2</div>
+        <div class="day-title">Beach & Pool Day</div>
+      </div>
+      <span class="day-hotel-tag tag-convento">El Convento</span>
+      <button class="day-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <div class="day-body">
+      <div class="day-body-inner">
+        <div class="day-section">
+          <div class="day-section-label">All Day</div>
+          <p>Sleep in and recover from La Placita. Head to <strong>Vivo Beach Club</strong> in Isla Verde (~20 min Uber) or use El Convento's included <strong>Isla Verde Beach Club</strong>. Arrive around 11am, grab poolside loungers, and alternate between the pool and ocean all day. Order food and drinks from your chair.</p>
+        </div>
+        <div class="day-section">
+          <div class="day-section-label">Dinner</div>
+          <p>Last night in Old San Juan — try somewhere you haven't been. <strong>Raices</strong> for traditional Puerto Rican or <strong>La Madre</strong> for upscale Mexican with great cocktails.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 4 -->
+  <div class="day-card" id="day4">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">04</div>
+      <div class="day-info">
+        <div class="day-date">Tuesday, March 3</div>
+        <div class="day-title">El Yunque → Ferry → Vieques → Bio Bay</div>
+      </div>
+      <span class="day-hotel-tag tag-bluehorizon">Blue Horizon</span>
+      <button class="day-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <div class="day-body">
+      <div class="day-body-inner">
+        <div class="day-section">
+          <div class="day-section-label">Morning</div>
+          <p>Check out of El Convento early. Uber/drive east to <strong>El Yunque National Forest</strong> (~1 hr) — the only tropical rainforest in the US. Hike to natural waterslides and swimming holes. Bring water shoes and a change of clothes.</p>
+        </div>
+        <div class="day-section">
+          <div class="day-section-label">Lunch</div>
+          <p><strong>Luquillo Beach Kiosks</strong> — dozens of open-air food stalls right on the beach serving mofongo, empanadillas, and fresh seafood.</p>
+        </div>
+        <div class="day-section">
+          <div class="day-section-label">Afternoon</div>
+          <p>Continue to <strong>Ceiba Ferry Terminal</strong> (~20 min from Luquillo). Take the ~30 min ferry to Vieques. Pick up your rental <strong>Jeep</strong> at the dock. Drive to <strong>Blue Horizon Boutique Resort</strong> and check in.</p>
+        </div>
+        <div class="day-section">
+          <div class="day-section-label">Evening</div>
+          <p><strong>Mosquito Bay bioluminescent kayak tour</strong> — the world's brightest bio bay. Microscopic organisms light up the water as you paddle through the darkness.</p>
+        </div>
+        <div class="day-highlight">
+          <p>☆ <strong>The big adventure day.</strong> Plan ferry times carefully — check puertoricoferry.com for the schedule. Book the bio bay tour in advance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 5 -->
+  <div class="day-card" id="day5">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">05</div>
+      <div class="day-info">
+        <div class="day-date">Wednesday, March 4</div>
+        <div class="day-title">Vieques Beach Day #1</div>
+      </div>
+      <span class="day-hotel-tag tag-bluehorizon">Blue Horizon</span>
+      <button class="day-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <div class="day-body">
+      <div class="day-body-inner">
+        <div class="day-section">
+          <div class="day-section-label">All Day</div>
+          <p>Full day exploring Vieques by Jeep. Hit <strong>La Chiva</strong> (Blue Beach), <strong>Sun Bay</strong>, and <strong>Playa Caracas</strong> — some of the most pristine, uncrowded beaches in the Caribbean. Pack snorkeling gear, a cooler, and reef-safe sunscreen.</p>
+        </div>
+        <div class="day-section">
+          <div class="day-section-label">Afternoon</div>
+          <p>Back to <strong>Blue Horizon's infinity pool</strong> for sunset cocktails overlooking the Caribbean.</p>
+        </div>
+        <div class="day-section">
+          <div class="day-section-label">Dinner</div>
+          <p><strong>Carambola</strong> at the hotel (their brunch and seafood mofongo are legendary), or drive into <strong>Esperanza</strong> for local spots along the malecón.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 6 -->
+  <div class="day-card" id="day6">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">06</div>
+      <div class="day-info">
+        <div class="day-date">Thursday, March 5</div>
+        <div class="day-title">Vieques Beach Day #2</div>
+      </div>
+      <span class="day-hotel-tag tag-bluehorizon">Blue Horizon</span>
+      <button class="day-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <div class="day-body">
+      <div class="day-body-inner">
+        <div class="day-section">
+          <div class="day-section-label">Morning</div>
+          <p>The bonus day. Book a <strong>horseback ride on the beach</strong> or a <strong>massage at Blue Horizon</strong> (cliff-side or poolside).</p>
+        </div>
+        <div class="day-section">
+          <div class="day-section-label">All Day</div>
+          <p>Explore beaches you missed — <strong>Playa Negra</strong> (black sand beach), <strong>Media Luna</strong>, or snorkel at a remote cove. Visit the old Navy bunkers and sugar mill ruins scattered around the island.</p>
+        </div>
+        <div class="day-section">
+          <div class="day-section-label">Evening</div>
+          <p>Sunset cocktails at the hotel. Last dinner on the island — try somewhere in Esperanza you haven't been yet.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DAY 7 -->
+  <div class="day-card" id="day7">
+    <div class="day-header" onclick="toggleDay(this)">
+      <div class="day-number">07</div>
+      <div class="day-info">
+        <div class="day-date">Friday, March 6</div>
+        <div class="day-title">Morning & Departure</div>
+      </div>
+      <span class="day-hotel-tag tag-bluehorizon">Blue Horizon</span>
+      <button class="day-toggle"><svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5.5L7 9.5L11 5.5" stroke="#999" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
+    </div>
+    <div class="day-body">
+      <div class="day-body-inner">
+        <div class="day-section">
+          <div class="day-section-label">Morning</div>
+          <p>Leisurely morning at the resort. Breakfast at <strong>Carambola</strong>, one last dip in the infinity pool. Check out and return the Jeep.</p>
+        </div>
+        <div class="day-section">
+          <div class="day-section-label">Midday</div>
+          <p>Ferry back to Ceiba. Drive/Uber to <strong>SJU airport</strong> (~1.5 hours). Afternoon flight home.</p>
+        </div>
+        <div class="day-highlight">
+          <p>☆ <strong>Allow plenty of time.</strong> Budget ~2.5 hours total from Vieques to the SJU gate. Check ferry schedules the night before.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CHECKLIST -->
+  <div class="section-header" id="checklist">
+    <div class="section-label">Before You Go</div>
+    <div class="section-title">Booking Checklist</div>
+  </div>
+
+  <div class="checklist">
+    <div class="check-item">
+      <div class="check-box done"></div>
+      <div class="check-text"><strong>Hotel El Convento</strong> — Feb 28–Mar 3 (3 nights)<span class="sub">elconvento.com · +1 787-723-9020</span></div>
+    </div>
+    <div class="check-item">
+      <div class="check-box"></div>
+      <div class="check-text"><strong>Blue Horizon Boutique Resort</strong> — Mar 3–6 (3 nights)<span class="sub">bluehorizonboutiqueresort.com · +1 787-741-3318</span></div>
+    </div>
+    <div class="check-item">
+      <div class="check-box"></div>
+      <div class="check-text"><strong>Ceiba → Vieques ferry tickets</strong> — both directions<span class="sub">puertoricoferry.com · under $5/person each way</span></div>
+    </div>
+    <div class="check-item">
+      <div class="check-box"></div>
+      <div class="check-text"><strong>Jeep rental on Vieques</strong><span class="sub">Island Jeep Rental (787-741-0190) or Coqui Car Rental (787-741-3696)</span></div>
+    </div>
+    <div class="check-item">
+      <div class="check-box"></div>
+      <div class="check-text"><strong>Mosquito Bay bio bay kayak tour</strong><span class="sub">Book in advance — multiple operators on the island</span></div>
+    </div>
+    <div class="check-item">
+      <div class="check-box"></div>
+      <div class="check-text"><strong>Casa Bacardí tasting / mixology class</strong><span class="sub">casabacardi.com · ~$50–70/person</span></div>
+    </div>
+    <div class="check-item">
+      <div class="check-box"></div>
+      <div class="check-text"><strong>No rental car needed on main island</strong><span class="sub">Ubers are easy and cheap throughout San Juan</span></div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    Last updated March 1, 2026<br>
+    Prices and availability are approximate — confirm directly with venues.
+  </div>
+
+</div>
+
+<script>
+function toggleDay(header) {
+  const card = header.closest('.day-card');
+  const body = card.querySelector('.day-body');
+  const inner = card.querySelector('.day-body-inner');
+  
+  if (card.classList.contains('open')) {
+    body.style.maxHeight = '0';
+    card.classList.remove('open');
+  } else {
+    // Close others
+    document.querySelectorAll('.day-card.open').forEach(c => {
+      c.querySelector('.day-body').style.maxHeight = '0';
+      c.classList.remove('open');
+    });
+    body.style.maxHeight = inner.scrollHeight + 'px';
+    card.classList.add('open');
+  }
+}
+
+// Sticky nav active state
+const sections = ['hotels','day1','day2','day3','day4','day5','day6','day7','checklist'];
+const pills = document.querySelectorAll('.nav-pill');
+
+function updateNav() {
+  let current = '';
+  sections.forEach(id => {
+    const el = document.getElementById(id);
+    if (el && el.getBoundingClientRect().top < 200) current = id;
+  });
+  pills.forEach(p => {
+    p.classList.toggle('active', p.getAttribute('href') === '#' + current);
+  });
+}
+
+window.addEventListener('scroll', updateNav, { passive: true });
+
+// Checklist toggle
+document.querySelectorAll('.check-box').forEach(box => {
+  box.addEventListener('click', () => box.classList.toggle('done'));
+});
+
+// Open Day 2 by default (today)
+document.addEventListener('DOMContentLoaded', () => {
+  const today = document.querySelector('#day2 .day-header');
+  if (today) toggleDay(today);
+});
+</script>
+
+</body>
+</html>
 
